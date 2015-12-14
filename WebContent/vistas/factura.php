@@ -14,11 +14,11 @@
 <script src="../bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
-    <header>DESCRIPCION FACTURA</header>
+    <header>DESCRIPCION CONSUMO</header>
     <section>
     <table border="0" align="center">
     	<tr>
-        	<td width="400"><input type="text" placeholder="Busca por Cliente" id="bs-factura"/></td>
+        	<td width="400"><input type="text" placeholder="Busca por Habitacion" id="bs-factura"/></td>
            <!-- <td width="100"><button id="nuevo-producto" class="btn btn-primary">Nuevo</button></td>-->
             <td width="200"><a target="_blank" href="consumo.php" class="btn btn-danger">Exportar a PDF</a></td>
         </tr>
@@ -27,23 +27,29 @@
     <div class="registros" id="agrega-registros">
     	<table class="table table-striped table-condensed table-hover">
         	<tr>
-            	<th width="100">Id Pedido</th>
+            	<th width="100">Nombre</th>
                 <th width="200">Descripcion</th>
                 <th width="100">Cantidad</th>
                 <th width="100">Precio Unitario</th>
-                <th width="200">Cliente</th>
+                <th width="200">Total</th>
+                <th width="200">Fecha</th>
+                <th width="200">Habitacion</th>
+                
+                
             </tr>
             <?php 
 					include('../php/conexion.php');
-					$registro = mysql_query("SELECT * FROM factura_descripcion ORDER BY idPedido ASC");
+					$registro = mysql_query("select nombre, descripcion, cantidad, precioU, total, fecha, codigo, estado from servicio_cliente where estado <> 'DISPONIBLE' ");
 					while($registro2 = mysql_fetch_array($registro)){
 						echo '<tr>
-								<td>'.$registro2['idPedido'].'</td>
+								<td>'.$registro2['nombre'].'</td>
 								<td>'.$registro2['descripcion'].'</td>
 								<td>'.$registro2['cantidad'].'</td>
                                 <td>'.$registro2['precioU'].'</td>
-                                <td>'.$registro2['nombre'].'</td>
-								<td><a <<href="javascript:editarProducto('.$registro2['nombre'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarProducto('.$registro2['nombre'].');" class="glyphicon glyphicon-remove-circle"></a></td>
+                                <td>'.$registro2['total'].'</td>
+                                <td>'.$registro2['fecha'].'</td>
+                                <td>'.$registro2['codigo'].'</td>
+                                
 							</tr>';		
 					}
 			?>
