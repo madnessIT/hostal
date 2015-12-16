@@ -17,17 +17,24 @@ $pdf->Cell(100, 8, 'LISTADO CONSUMO', 0);
 $pdf->Ln(23);
 $pdf->SetFont('Arial', 'B', 8);
 //$pdf->Cell(15, 8, 'Item', 0);
-$pdf->Cell(25, 8, 'Nombre', 0);
-$pdf->Cell(40, 8, 'Descripcion', 0);
-$pdf->Cell(25, 8, 'Cantidad', 0);
-$pdf->Cell(25, 8, 'Precio Unitario', 0);
-$pdf->Cell(25, 8, 'Total', 0);
-$pdf->Cell(30, 8, 'Fecha', 0);
-//$pdf->Cell(25, 8, 'estado', 0);
+$pdf->Cell(40, 8, 'descripcion', 0);
+$pdf->Cell(25, 8, 'cantidad', 0);
+$pdf->Cell(25, 8, 'precioU', 0);
+$pdf->Cell(25, 8, 'nombre', 0);
+$pdf->Cell(40, 8, 'idPedido', 0);
 $pdf->Ln(8);
 $pdf->SetFont('Arial', '', 8);
 //CONSULTA
-$productos = mysql_query("select nombre, descripcion, cantidad, precioU, total, fecha, codigo, estado from servicio_cliente where estado <> 'DISPONIBLE' ");
+if(isset($_GET['textoBusqueda'])){
+	$textoBusquedaEscapado = mysql_real_escape_string($_GET['textoBusqueda']);
+	$condicion = " nombre LIKE '%$textoBusquedaEscapado%'";
+}else if(isset($_GET['idPedido'])){
+	$condicion = " idPedido = ".$_GET['idPedido'];
+}else{
+	$condicion = "1=1";	//Solo por si acaso, si es que no llegó idPedido ni textoBusqueda. Por el momento esto no sucede.
+}
+
+$productos = mysql_query("SELECT * FROM factura_descripcion WHERE $condicion ORDER BY idPedido ASC");
 $item = 0;
 $totaluni = 0;
 $totaldis = 0;
@@ -36,13 +43,11 @@ while($productos2 = mysql_fetch_array($productos)){
 	//$totaluni = $totaluni + $productos2['precio_unit'];
 	//$totaldis = $totaldis + $productos2['precio_dist'];
 	//$pdf->Cell(15, 8, $item, 0);
-	$pdf->Cell(25, 8,$productos2['nombre'], 0);
-	$pdf->Cell(40, 8, $productos2['descripcion'], 0);
+	$pdf->Cell(40, 8,$productos2['descripcion'], 0);
 	$pdf->Cell(25, 8, $productos2['cantidad'], 0);
 	$pdf->Cell(25, 8, $productos2['precioU'], 0);
-    $pdf->Cell(25, 8, $productos2['total'], 0);
-    $pdf->Cell(30, 8, $productos2['fecha'], 0);
-    //$pdf->Cell(25, 8, $productos2['estado'], 0);
+	$pdf->Cell(25, 8, $productos2['nombre'], 0);
+    $pdf->Cell(40, 8, $productos2['idPedido'], 0);
 	$pdf->Ln(8);
 }
 $pdf->SetFont('Arial', 'B', 8);
