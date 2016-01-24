@@ -232,6 +232,11 @@ function exportarBusquedaFacturaAPdf(textoBusqueda){
 	window.open('consumo.php?textoBusqueda=' + textoBusqueda);
 	return false;
 }
+function exportarBusquedaFacturaAPdf1(textoBusqueda){
+	//var textoBusqueda = $('#'+idTextboxBusqueda).val();
+	window.open('facturacion.php?textoBusqueda=' + textoBusqueda);
+	return false;
+}
 // SERVICIOS POR CLIENTE
 
 $(function(){
@@ -250,6 +255,19 @@ $(function(){
 	$('#bs-factura').on('keyup',function(){
 		var dato = $('#bs-factura').val();
 		var url = '../php/busca_factura.php';
+		$.ajax({
+		type:'POST',
+		url:url,
+		data:'dato='+dato,
+		success: function(datos){
+			$('#agrega-registros').html(datos);
+		}
+	});
+	return false;
+	});
+	$('#bs-factu').on('keyup',function(){
+		var dato = $('#bs-factu').val();
+		var url = '../php/busca_factu.php';
 		$.ajax({
 		type:'POST',
 		url:url,

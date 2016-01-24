@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tienda</title>
+<title>Hostal Republica</title>
 <link href="../css/estilo.css" rel="stylesheet">
 <script src="../js/jquery.js"></script>
 <script src="../js/myjava.js"></script>

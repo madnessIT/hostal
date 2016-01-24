@@ -7,7 +7,7 @@
   <label for="txtUsuario" >Usuario : </label>
   <input id="txtUsuario"  type='text' placeholder="ingrese usuario" required ng-model="user.name" />
   <label for="txtUsuario">Clave : </label>
-  <input id="txtClave" type='text' placeholder='ingrese contraseña' required ng-model="user.clave" />
+  <input id="txtClave" type='password' placeholder='ingrese contraseña' required ng-model="user.clave" />
   <div class="clear"></div>
   </div>
   <div class="button" ng-disabled="form1.$invalid" ><a href="" ng-click="login(user)">INGRESAR</a></div>

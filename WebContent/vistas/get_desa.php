@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tienda</title>
+<title>Hostal Republica</title>
 <link href="../css/estilo.css" rel="stylesheet">
 <script src="../js/jquery.js"></script>
 <script src="../js/myjava.js"></script>
@@ -12,7 +12,6 @@
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <script src="../bootstrap/js/bootstrap.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Sampel Project Ajax</title>
 <script src="selectdesa.js"></script>
 </head>
 <body>
@@ -30,7 +29,7 @@
 	?>
 	Cliente: <b><?php echo strtoupper ($row2['nombre'])?> </b>
 	<?php
-	echo "<table class='table table-striped table-condensed table-hover'>
+	echo "<table class='table table-striped table-condensed table-hover table-bordered'>
             <tr>
             <th>Nombre</th> 
             <th>Costo Estadia</th> 

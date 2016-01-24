@@ -5,7 +5,7 @@ include("koneksi.php");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Tienda</title>
+<title>Hostal Republica</title>
 <link href="../css/estilo.css" rel="stylesheet">
 <script src="../js/jquery.js"></script>
 <script src="../js/myjava.js"></script>
@@ -16,7 +16,6 @@ include("koneksi.php");
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <script src="../bootstrap/js/bootstrap.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Sampel Project Ajax</title>
 <script src="selectdesa.js"></script>
 </head>
 <body>
@@ -38,7 +37,7 @@ Cliente:
 	</select>
 	<br/><br/>
 	<div id="txtHint"></div>
-<td width="200"><a target="_blank" href="productos.php" class="btn btn-danger" id = 'sss'>Exportar a PDF</a></td> 
+<td width="200"><a target="_blank" href="facturacion.php" class="btn btn-danger" id = 'sss'>Exportar a PDF</a></td> 
     </body>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 </html>
@@ -55,7 +54,7 @@ $(document).ready(function()
     {
         $.ajax(
         {
-            url: "productos.php", 
+            url: "facturacion.php", 
             type:'GET',
             cache: false,
             data:{
@@ -64,7 +63,7 @@ $(document).ready(function()
             },
             success: function(result)
             
-               // alert('llamo')
+               alert('llamo')
             });    
     });
 });
