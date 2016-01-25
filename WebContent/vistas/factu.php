@@ -28,13 +28,13 @@
     	<table class="table table-striped table-condensed table-hover">
         	<tr>
             	<th width="200">Nombre</th>
-                <th width="100">Costo Estadia</th>
-                <th width="100">Costo Servicios</th>
-                <th width="100">Total Pagado</th>
+                <th width="200">Costo Estadia</th>
+                <th width="200">Costo Servicios</th>
+                <th width="200">Total Pagado</th>
             </tr>
             <?php 
 					include('../php/conexion.php');
-					$registro = mysql_query("SELECT nombre, costo_estadia, costo_serviciosExtra, total_pagado from cuenta ");
+					$registro = mysql_query("SELECT nombre, costo_estadia, costo_serviciosExtra, total_pagado from cuenta where total_pagado <> 0");
 					while($registro2 = mysql_fetch_array($registro)){
 						echo '<tr>
 								<td>'.$registro2['nombre'].'</td>
@@ -43,8 +43,6 @@
                                 <td>'.$registro2['total_pagado'].'</td>
 								<td>
 
-				 <a href="facturacion.php?nombre='.$registro2['nombre'].'" target="_blank"><img src="../recursos/pdf.gif" /></a>
-								</td>
 
 							</tr>';		
 					}

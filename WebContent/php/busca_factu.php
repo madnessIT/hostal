@@ -12,9 +12,9 @@ $registro = mysql_query("SELECT nombre, costo_estadia, costo_serviciosExtra, tot
 echo '<table class="table table-striped table-condensed table-hover">
         	<tr>
             	<th width="200">Nombre</th>
-                <th width="100">Costo Estadia</th>
-                <th width="100">Costo Servicios</th>
-                <th width="100">Total</th>
+                <th width="200">Costo Estadia</th>
+                <th width="200">Costo Servicios</th>
+                <th width="200">Total</th>
             </tr>';
 if(mysql_num_rows($registro)>0){
 	while($registro2 = mysql_fetch_array($registro)){
@@ -24,9 +24,6 @@ if(mysql_num_rows($registro)>0){
                                 <td>'.$registro2['costo_serviciosExtra'].'</td>
                                 <td>'.$registro2['total_pagado'].'</td>
 								<td>
-									<a href="javascript:editarProducto('.$registro2['nombre'].');" class="glyphicon glyphicon-edit"></a>
-									<a href="javascript:eliminarProducto('.$registro2['nombre'].');" class="glyphicon glyphicon-remove-circle"></a>
-									<a href="facturacion.php?nombre='.$registro2['nombre'].'" target="_blank"><img src="../recursos/pdf.gif" /></a>
 								</td>
 				</tr>';
 	}
