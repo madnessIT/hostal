@@ -35,7 +35,7 @@
             </tr>
             <?php 
 					include('../php/conexion.php');
-					$registro = mysql_query("SELECT * FROM factura_descripcion ORDER BY idPedido ASC");
+					$registro = mysql_query("SELECT * FROM factura_descripcion WHERE estado = 'OCUPADO' ORDER BY idPedido ASC");
 					while($registro2 = mysql_fetch_array($registro)){
 						echo '<tr>
 								<td>'.$registro2['idPedido'].'</td>

@@ -34,7 +34,7 @@
             </tr>
             <?php 
 					include('../php/conexion.php');
-					$registro = mysql_query("SELECT nombre, costo_estadia, costo_serviciosExtra, total_pagado from cuenta where total_pagado <> 0");
+					$registro = mysql_query("SELECT nombre, costo_estadia, costo_serviciosExtra, total_pagado from cuenta where total_pagado <> 0 ");
 					while($registro2 = mysql_fetch_array($registro)){
 						echo '<tr>
 								<td>'.$registro2['nombre'].'</td>
